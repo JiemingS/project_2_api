@@ -19,6 +19,7 @@ csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
   t = Hero.new
   t.name = row['name']
+  t.hero_id = row['hero_id']
   t.damage = row['damage']
   t.toughness = row['toughness']
   t.crowd_control = row['crowd_control']

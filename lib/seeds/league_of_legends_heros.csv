@@ -1,4 +1,4 @@
-name,damage_type,damage,toughness,crowd_control,mobility,attack_range
-Caitlyn,physical,8,4,4,6,9
-Draven,physical,10,5,3,6,6
-Ahri,magic,7,6,5,8,6
+name,hero_id,damage_type,damage,toughness,crowd_control,mobility,attack_range
+Caitlyn,1,physical,8,4,4,6,9
+Draven,2,physical,10,5,3,6,6
+Ahri,3,magic,7,6,5,8,6
