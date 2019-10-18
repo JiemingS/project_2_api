@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
 class Hero < ApplicationRecord
-  belongs_to :team, required: false
+  has_many :members
+  has_many :teams, through: :members
 end
