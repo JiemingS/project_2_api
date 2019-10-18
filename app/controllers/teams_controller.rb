@@ -1,18 +1,20 @@
 # frozen_string_literal: true
 
-class TeamsController < ApplicationController
+class TeamsController < ProtectedController
   before_action :set_team, only: %i[show update destroy]
 
   # GET /teams
   def index
-    @teams = Team.all
+    # @teams = Team.all
+    @teams = current_user.teams
 
     render json: @teams
   end
 
   # GET /teams/1
   def show
-    render json: @team
+    # render json: @team
+    render json: current_user.teams.find(params[:id])
   end
 
   # POST /teams
@@ -28,6 +30,8 @@ class TeamsController < ApplicationController
 
   # PATCH/PUT /teams/1
   def update
+    @team = current_user.teams.find(params[:id])
+
     if @team.update(team_params)
       render json: @team
     else
