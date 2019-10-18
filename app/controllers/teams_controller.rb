@@ -41,6 +41,8 @@ class TeamsController < ProtectedController
 
   # DELETE /teams/1
   def destroy
+    @team = current_user.teams.find(params[:id])
+
     @team.destroy
   end
 
