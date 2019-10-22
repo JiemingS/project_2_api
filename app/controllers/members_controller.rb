@@ -1,20 +1,20 @@
 # frozen_string_literal: true
 
-class MembersController < ApplicationController
+class MembersController < ProtectedController
   before_action :set_member, only: %i[show update destroy]
 
   # GET /members
   def index
-    @members = Member.all
-    # @members = current_user.members
+    # @members = Member.all
+    @members = current_user.members
 
     render json: @members
   end
 
   # GET /members/1
   def show
-    render json: @member
-    # render json: current_user.members.find(params[:id])
+    # render json: @member
+    render json: current_user.members.find(params[:id])
   end
 
   # POST /members
@@ -30,6 +30,8 @@ class MembersController < ApplicationController
 
   # PATCH/PUT /members/1
   def update
+    @member = current_user.members.find(params[:id])
+
     if @member.update(member_params)
       render json: @member
     else
@@ -39,7 +41,7 @@ class MembersController < ApplicationController
 
   # DELETE /members/1
   def destroy
-    # @team = current_user.teams.find(params[:id])
+    @member = current_user.members.find(params[:id])
     @member.destroy
   end
 
@@ -52,6 +54,6 @@ class MembersController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def member_params
-    params.require(:member).permit(:team_id, :hero_id)
+    params.require(:member).permit(:team_id, :hero_id, :user_id)
   end
 end
