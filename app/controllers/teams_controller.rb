@@ -19,7 +19,9 @@ class TeamsController < ProtectedController
 
   # POST /teams
   def create
-    @team = Team.new(team_params)
+    # @team = Team.new(team_params)
+    # @member = current_user.members.build(member_params)
+    @team = current_user.teams.build(team_params)
 
     if @team.save
       render json: @team, status: :created, location: @team
@@ -50,7 +52,7 @@ class TeamsController < ProtectedController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_team
-    @team = Team.find(params[:id])
+    @team = current_user.teams.find(params[:id])
   end
 
   # Only allow a trusted parameter "white list" through.

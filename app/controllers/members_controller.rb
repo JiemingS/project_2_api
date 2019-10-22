@@ -19,7 +19,7 @@ class MembersController < ProtectedController
 
   # POST /members
   def create
-    @member = Member.new(member_params)
+    @member = current_user.members.build(member_params)
 
     if @member.save
       render json: @member, status: :created, location: @member
@@ -49,11 +49,12 @@ class MembersController < ProtectedController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_member
-    @member = Member.find(params[:id])
+    # @member = Member.find(params[:id])
+    @member = current_user.members.find(params[:id])
   end
 
   # Only allow a trusted parameter "white list" through.
   def member_params
-    params.require(:member).permit(:team_id, :hero_id, :user_id)
+    params.require(:member).permit(:team_id, :hero_id)
   end
 end
