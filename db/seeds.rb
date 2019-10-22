@@ -26,6 +26,7 @@ csv.each do |row|
   t.mobility = row['mobility']
   t.attack_range = row['attack_range']
   t.damage_type = row['damage_type']
+  t.icon = row['icon']
   t.save
   # puts "#{t.name}, #{t.damage} saved"
   puts "#{t.persisted?}" # should be true, or false if it didn't save...
