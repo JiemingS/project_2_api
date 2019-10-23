@@ -17,6 +17,8 @@ three table.
 # Link to both back_end and front_end
 - [League of Legend Notebook API](https://github.com/JiemingS/project_2_api)
 - [League of Legend Notebook Client](https://github.com/JiemingS/project_2-_client)
+- [API Deploy](https://mysterious-sands-56739.herokuapp.com/)
+- [Client Deploy](https://jiemings.github.io/project_2-_client/)
 
 # Development Process and Problem-solving Strategy
 
