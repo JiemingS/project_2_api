@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   resources :members
-  resources :heros, except: %i[new edit]
+  resources :heros, except: %i[new edit create delete update]
   resources :teams, except: %i[new edit]
   # RESTful routes
   resources :examples, except: %i[new edit]
